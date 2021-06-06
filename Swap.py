@@ -1,39 +1,23 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-
-# In[2]:
-
-
+# Loading Images for Swaping
 nobita = cv2.imread('nobita.png')
 sizuka = cv2.imread('sizuka.png')
 
-
-# In[5]:
-
-
+# Displaying Loaded Nobita Face
 cv2.imshow('Nobita', nobita)
 cv2.waitKey(10)
 cv2.destroyAllWindows()
 
-
-# In[6]:
-
-
+# Displaying Loaded Sizuka Face
 cv2.imshow('Sizuka', sizuka)
 cv2.waitKey(10)
 cv2.destroyAllWindows()
-
-
-# In[7]:
-
 
 # Swaping Sizuka Face on Nobita Body
 # Croping Sizuka Face
@@ -50,17 +34,10 @@ dim = (width, height)
 s_resized = cv2.resize(s, dim, interpolation=cv2.INTER_AREA)  
 new_sizuka = np.vstack((s_resized,nb))
 
-
-# In[8]:
-
-
+# Displaying swaped Sizuka Face on Nobita Body
 cv2.imshow('New_Sizuka', new_sizuka)
 cv2.waitKey(10)
 cv2.destroyAllWindows()
-
-
-# In[9]:
-
 
 # Swaping Nobita Face on Sizuka Body
 # Croping Nobita Face
@@ -77,17 +54,7 @@ nf_resized = cv2.resize(nf, dim, interpolation=cv2.INTER_AREA)
 sizuka[15:490,10:650] = nf_resized
 sizuka[480:550,100:255] = [0,0,0]
 
-
-# In[10]:
-
-
+# Displaying swaped Nobita Face on Sizuka Body
 cv2.imshow('New_Nobita', sizuka)
 cv2.waitKey(10)
 cv2.destroyAllWindows()
-
-
-# In[ ]:
-
-
-
-
